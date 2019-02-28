@@ -7,3 +7,19 @@ Simple [Muzei](http://muzei.co/) Source providing the [Astronomy Picture of the 
 </div>
 
 Muzei Logo (used in App icon) taken from: https://github.com/romannurik/muzei/blob/master/art/ic_complication.svg
+
+## NASA Api key
+Provide your own [NASA Api key](https://api.nasa.gov/index.html#apply-for-an-api-key) by adding it as a resource
+```xml
+<resources>
+    <!-- NASA api key -->
+    <string name="nasa_api_key" translatable="false">[YOUR_OWN_API_KEY]</string>
+</resources>
+```
+or just use the [demo key](https://api.nasa.gov/api.html#authentication)
+```xml
+<resources>
+    <!-- NASA api key -->
+    <string name="nasa_api_key" translatable="false">DEMO_KEY</string>
+</resources>
+```
