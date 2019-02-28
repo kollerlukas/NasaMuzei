@@ -1,0 +1,12 @@
+<resources>
+    <!-- App name -->
+    <string name="app_name" translatable="false">Muzei Source: NASA APOD</string>
+
+    <!-- Muzei ArtProvider strings -->
+    <string name="muzei_art_provider_authority">us.koller.nasamuzei</string>
+    <string name="nasa_art_provider_title" translatable="false">NASA: APOD</string>
+    <string name="nasa_art_provider_description">Each day a different image or photograph of our fascinating universe is featured, along with a brief explanation written by a professional astronomer.</string>
+
+    <!-- User Command strings -->
+    <string name="view_archive">View Archive</string>
+</resources>

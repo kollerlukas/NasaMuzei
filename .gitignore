@@ -1,0 +1,20 @@
+# Java class files
+*.class
+
+# generated files
+.gradle/
+gradle/
+build/
+
+# Project files
+*.iml
+.idea
+
+# Local configuration file (sdk path, etc)
+local.properties
+
+# Windows thumbnail db
+.DS_Store
+
+# api key
+app/src/main/res/values/api_key.xml

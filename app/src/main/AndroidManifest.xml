@@ -1,0 +1,29 @@
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    package="us.koller.nasamuzei">
+
+    <!-- permissions -->
+    <uses-permission android:name="android.permission.INTERNET" />
+
+    <application
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme"
+        tools:ignore="AllowBackup,GoogleAppIndexingWarning">
+
+        <provider
+            android:name=".NasaArtProvider"
+            android:authorities="@string/muzei_art_provider_authority"
+            android:description="@string/nasa_art_provider_description"
+            android:exported="true"
+            android:label="@string/nasa_art_provider_title"
+            android:permission="com.google.android.apps.muzei.api.ACCESS_PROVIDER">
+            <intent-filter>
+                <action android:name="com.google.android.apps.muzei.api.MuzeiArtProvider" />
+            </intent-filter>
+        </provider>
+    </application>
+</manifest>
