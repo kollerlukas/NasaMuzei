@@ -34,7 +34,7 @@ class NasaArtProvider : MuzeiArtProvider() {
                 .subscribe(
                         { res ->
                             val providerClient = ProviderContract.getProviderClient(context, authority)
-                            providerClient.addArtwork(Artwork().apply {
+                            providerClient.setArtwork(Artwork().apply {
                                 token = res.url
                                 title = res.title
                                 byline = res.copyright ?: "Public Domain"
