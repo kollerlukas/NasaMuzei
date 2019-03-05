@@ -6,6 +6,10 @@ android:
   # The BuildTools version used by your project
   - build-tools-27.0.3
 
-  # Run assemble and unit tests
+# Accept all sdk licenses
+before_install:
+  yes | sdkmanager --licenses
+
+# Run assemble and unit tests
 script:
   - ./gradlew clean assembleDebug assembleRelease
