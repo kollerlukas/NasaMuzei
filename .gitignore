@@ -3,7 +3,6 @@
 
 # generated files
 .gradle/
-gradle/
 build/
 
 # Project files
