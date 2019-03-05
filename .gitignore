@@ -16,4 +16,4 @@ local.properties
 .DS_Store
 
 # api key
-app/src/main/res/values/api_key.xml
+app/src/main/res/values-v23/api_key.xml
