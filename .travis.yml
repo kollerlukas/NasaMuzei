@@ -12,4 +12,4 @@ before_install:
 
 # Run assemble and unit tests
 script:
-  - ./gradlew clean assembleDebug assembleRelease
+  - ./gradlew clean assembleDebug assembleRelease testDebug testRelease
