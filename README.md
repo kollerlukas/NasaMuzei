@@ -1,4 +1,7 @@
-<img src="https://github.com/kollerlukas/NasaMuzei/raw/master/app/src/main/res/mipmap-xxxhdpi/ic_launcher.png" alt="Screenshot Main" width="100">
+[![Build Status](https://travis-ci.org/kollerlukas/NasaMuzei.svg?branch=master)](https://travis-ci.org/kollerlukas/NasaMuzei)
+
+<img src="https://github.com/kollerlukas/NasaMuzei/raw/master/app/src/main/res/mipmap-xxxhdpi/ic_launcher.png" alt="Screenshot Main"
+width="100">
 
 # Muzei Source: NASA APOD
 Simple [Muzei](http://muzei.co/) Source providing the [Astronomy Picture of the Day by NASA](https://apod.nasa.gov/apod/astropix.html).
