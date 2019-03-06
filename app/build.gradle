@@ -12,7 +12,8 @@ android {
         targetSdkVersion 28
         versionCode 1
         versionName "1.0"
-        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+        /* use androidX runner */
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
     buildTypes {
         release {
@@ -27,13 +28,24 @@ dependencies {
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
 
     /* Muzei dependency */
-    implementation 'com.google.android.apps.muzei:muzei-api:3.1.0'
+    implementation "com.google.android.apps.muzei:muzei-api:3.1.0"
+
+    /* androidx worker */
+    implementation "androidx.core:core-ktx:1.0.1"
+    implementation "android.arch.work:work-runtime-ktx:1.0.0"
+    implementation "android.arch.work:work-rxjava2:1.0.0"
 
     /* Retrofit dependencies */
-    implementation 'com.squareup.retrofit2:retrofit:2.5.0'
+    implementation "com.squareup.retrofit2:retrofit:2.5.0"
     implementation "com.squareup.retrofit2:converter-gson:2.5.0"
     implementation "com.squareup.retrofit2:adapter-rxjava2:2.5.0"
 
     /* RxJava dependency */
     implementation "io.reactivex.rxjava2:rxandroid:2.1.0"
+
+    /* testing libs */
+    androidTestImplementation "junit:junit:4.12"
+    androidTestImplementation "android.arch.work:work-testing:1.0.0"
+    androidTestImplementation "androidx.test:core:1.1.0"
+    androidTestImplementation "androidx.test:runner:1.1.1"
 }

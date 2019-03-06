@@ -1,16 +1,16 @@
 package us.koller.nasamuzei
 
-import io.reactivex.Observable
+import io.reactivex.Single
 import retrofit2.Retrofit
 import retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory
 import retrofit2.converter.gson.GsonConverterFactory
 import retrofit2.http.GET
 import retrofit2.http.Query
 
-internal interface NasaService {
+interface NasaService {
 
     companion object {
-        private fun createService(): NasaService {
+        fun createService(): NasaService {
             /* instantiate service */
             return Retrofit.Builder()
                     /* add RxJava */
@@ -21,15 +21,11 @@ internal interface NasaService {
                     .build()
                     .create(NasaService::class.java)
         }
-
-        internal fun apod(api_key: String, date: String?): Observable<ApodImage> {
-            return createService().apod(api_key, date)
-        }
     }
 
     /* api call to get the current APOD */
     @GET("apod")
-    fun apod(@Query("api_key") api_key: String, @Query("date") date: String?): Observable<ApodImage>
+    fun apod(@Query("api_key") api_key: String, @Query("date") date: String?): Single<ApodImage>
 
     /*
     * ApodImage sample data:

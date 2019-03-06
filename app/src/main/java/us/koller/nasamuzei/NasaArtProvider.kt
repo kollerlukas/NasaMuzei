@@ -14,38 +14,16 @@ import io.reactivex.schedulers.Schedulers
 class NasaArtProvider : MuzeiArtProvider() {
 
     companion object {
-        private const val COMMAND_ID_VIEW_ARCHIVE = 1
+        const val AUTHORITY = "us.koller.nasamuzei"
 
-        private const val CURRENT_APOD_URL = "https://apod.nasa.gov/apod/astropix.html"
+        private const val COMMAND_ID_VIEW_ARCHIVE = 1
         private const val APOD_ARCHIVE_URL = "https://apod.nasa.gov/apod/archivepix.html"
     }
 
-    private var disposable: Disposable? = null
+    private var workerUtil: NasaArtWorker.Companion.Util = NasaArtWorker.Companion.Util()
 
-    override fun onLoadRequested(initial: Boolean) {
-        val context = context ?: return
-
-        val authority = context.getString(R.string.muzei_art_provider_authority)
-        val apiKey = context.getString(R.string.nasa_api_key)
-
-        disposable = NasaService.apod(apiKey, null /* Type: YYYY-MM-DD*/)
-                .subscribeOn(Schedulers.io())
-                .observeOn(AndroidSchedulers.mainThread())
-                .subscribe(
-                        { res ->
-                            val providerClient = ProviderContract.getProviderClient(context, authority)
-                            providerClient.setArtwork(Artwork().apply {
-                                token = res.url
-                                title = res.title
-                                byline = res.copyright ?: "Public Domain"
-                                attribution = res.explanation
-                                persistentUri = Uri.parse(res.url)
-                                webUri = Uri.parse(CURRENT_APOD_URL)
-                            })
-                        }
-                )
-                /* error */
-                { err -> Log.d("NasaArtProvider", "apod(), error: " + err.message) }
+    public override fun onLoadRequested(initial: Boolean) {
+        workerUtil.enqueueLoad()
     }
 
     /* add user command to view the archive of all APOD pictures */
