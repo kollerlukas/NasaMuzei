@@ -39,6 +39,7 @@ interface NasaService {
         "url": "https://apod.nasa.gov/apod/image/1902/ultima-thule-1-ca06_022219_1024.jpg"
     }
     * */
+    /* simple data-class to store the image retrieved by the APOD-Api: https://api.nasa.gov/api.html#apod */
     data class ApodImage(
             val date: String,
             val explanation: String,

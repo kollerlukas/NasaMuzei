@@ -2,14 +2,9 @@ package us.koller.nasamuzei
 
 import android.content.Intent
 import android.net.Uri
-import android.util.Log
 import com.google.android.apps.muzei.api.UserCommand
 import com.google.android.apps.muzei.api.provider.Artwork
 import com.google.android.apps.muzei.api.provider.MuzeiArtProvider
-import com.google.android.apps.muzei.api.provider.ProviderContract
-import io.reactivex.android.schedulers.AndroidSchedulers
-import io.reactivex.disposables.Disposable
-import io.reactivex.schedulers.Schedulers
 
 class NasaArtProvider : MuzeiArtProvider() {
 
@@ -23,6 +18,7 @@ class NasaArtProvider : MuzeiArtProvider() {
     private var workerUtil: NasaArtWorker.Companion.Util = NasaArtWorker.Companion.Util()
 
     public override fun onLoadRequested(initial: Boolean) {
+        /* enqueue new request to the worker via the util function */
         workerUtil.enqueueLoad()
     }
 

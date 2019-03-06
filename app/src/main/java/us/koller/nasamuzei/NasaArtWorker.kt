@@ -12,6 +12,7 @@ class NasaArtWorker(context: Context, workerParams: WorkerParameters) : RxWorker
     companion object {
 
         class Util {
+            /* util method to easier enqueue new work request */
             internal fun enqueueLoad() {
                 val constraints = Constraints.Builder()
                         .setRequiredNetworkType(NetworkType.CONNECTED)
@@ -24,15 +25,19 @@ class NasaArtWorker(context: Context, workerParams: WorkerParameters) : RxWorker
             }
         }
 
+        /* url to the current APOD */
         const val CURRENT_APOD_URL = "https://apod.nasa.gov/apod/astropix.html"
     }
 
     override fun createWork(): Single<Result> {
+        /* get api key from resources */
         val apiKey = applicationContext.getString(R.string.nasa_api_key)
 
         return NasaService.createService().apod(apiKey, null /* Type: YYYY-MM-DD*/)
                 .doOnSuccess { res ->
+                    /* retrieve client */
                     val client = ProviderContract.getProviderClient(applicationContext, NasaArtProvider.AUTHORITY)
+                    /* create new artwork instance */
                     val artwork = Artwork().apply {
                         token = res.url
                         title = res.title
@@ -41,8 +46,11 @@ class NasaArtWorker(context: Context, workerParams: WorkerParameters) : RxWorker
                         persistentUri = Uri.parse(res.url)
                         webUri = Uri.parse(CURRENT_APOD_URL)
                     }
+                    /* set new artwork */
                     client.setArtwork(artwork)
-                }.map { a -> Result.success(Data.Builder().putString("url", a.url).build()) }
-                .onErrorReturn { Result.failure() }
+                }.map {
+                    /* map to Result success */
+                    a -> Result.success(Data.Builder().putString("url", a.url).build()) }
+                .onErrorReturn { Result.failure() /* something went wrong */ }
     }
 }
