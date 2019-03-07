@@ -7,6 +7,9 @@ import com.google.android.apps.muzei.api.provider.Artwork
 import com.google.android.apps.muzei.api.provider.ProviderContract
 import io.reactivex.Single
 
+/**
+ *  worker to load images for @see NasaArtProvider
+ * */
 class NasaArtWorker(context: Context, workerParams: WorkerParameters) : RxWorker(context, workerParams) {
 
     companion object {

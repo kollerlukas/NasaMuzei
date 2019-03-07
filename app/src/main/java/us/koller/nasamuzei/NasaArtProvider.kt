@@ -6,6 +6,9 @@ import com.google.android.apps.muzei.api.UserCommand
 import com.google.android.apps.muzei.api.provider.Artwork
 import com.google.android.apps.muzei.api.provider.MuzeiArtProvider
 
+/**
+ * provide loaded images via the Muzei Api: https://github.com/romannurik/muzei/wiki/API
+ * */
 class NasaArtProvider : MuzeiArtProvider() {
 
     companion object {

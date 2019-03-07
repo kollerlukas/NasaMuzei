@@ -8,8 +8,14 @@ import org.hamcrest.core.Is.`is`
 import org.junit.Assert.assertThat
 import org.junit.Test
 
+/**
+ * simple test class for @see NasaArtWorker
+ * */
 class NasaArtWorkerTest {
 
+    /**
+     * tests @see NasaArtWorker#doWork()
+     * */
     @Test
     @Throws(Exception::class)
     fun testDoWork() {
