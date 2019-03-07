@@ -1,4 +1,5 @@
 [![Build Status](https://travis-ci.org/kollerlukas/NasaMuzei.svg?branch=master)](https://travis-ci.org/kollerlukas/NasaMuzei)
+[![Codacy Badge](https://api.codacy.com/project/badge/Grade/c64cac182769406092744ea77d732ca2)](https://www.codacy.com/app/kollerlukas/NasaMuzei?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=kollerlukas/NasaMuzei&amp;utm_campaign=Badge_Grade)
 
 <img src="https://github.com/kollerlukas/NasaMuzei/raw/master/app/src/main/res/mipmap-xxxhdpi/ic_launcher.png" alt="Screenshot Main"
 width="100">
