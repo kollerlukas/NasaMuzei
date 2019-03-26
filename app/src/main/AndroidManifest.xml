@@ -25,5 +25,12 @@
                 <action android:name="com.google.android.apps.muzei.api.MuzeiArtProvider" />
             </intent-filter>
         </provider>
+
+        <!-- disable WorkManagerInitializer to use own WorkManager Factory -->
+        <provider
+            android:name="androidx.work.impl.WorkManagerInitializer"
+            android:authorities="us.koller.nasamuzei.workmanager-init"
+            android:enabled="false"
+            android:exported="false" />
     </application>
 </manifest>

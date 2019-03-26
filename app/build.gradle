@@ -46,6 +46,8 @@ dependencies {
     /* testing libs */
     androidTestImplementation "junit:junit:4.12"
     androidTestImplementation "android.arch.work:work-testing:1.0.0"
+    androidTestImplementation "org.mockito:mockito-android:2.25.0"
     androidTestImplementation "androidx.test:core:1.1.0"
+    androidTestImplementation "androidx.test:rules:1.1.1"
     androidTestImplementation "androidx.test:runner:1.1.1"
 }

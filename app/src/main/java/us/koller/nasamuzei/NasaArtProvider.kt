@@ -18,15 +18,17 @@ class NasaArtProvider : MuzeiArtProvider() {
         private const val APOD_ARCHIVE_URL = "https://apod.nasa.gov/apod/archivepix.html"
     }
 
-    private var workerUtil: NasaArtWorker.Companion.Util = NasaArtWorker.Companion.Util()
+    private val workerUtil: NasaArtWorker.Companion.Util by lazy {
+        NasaArtWorker.Companion.Util(context)
+    }
 
     public override fun onLoadRequested(initial: Boolean) {
         /* enqueue new request to the worker via the util function */
         workerUtil.enqueueLoad()
     }
 
-    /* add user command to view the archive of all APOD pictures */
     override fun getCommands(artwork: Artwork): MutableList<UserCommand> {
+        /* add user command to view the archive of all APOD pictures */
         return mutableListOf(UserCommand(COMMAND_ID_VIEW_ARCHIVE, context.getString(R.string.view_archive)))
     }
 
